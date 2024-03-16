@@ -1,24 +1,41 @@
-// import { useState } from "react";
-import Header from "./component/Header";
-import "@radix-ui/themes/styles.css";
+import { Container } from "@radix-ui/themes";
 import { configureWeb3Modal } from "./connection";
-import usePools from "./hooks/getPools";
+import "@radix-ui/themes/styles.css";
+import Header from "./component/Header";
+import CreatePoolComponent from "./component/CreatePool";
+import useGetPool from "./hooks/useGetPools";
+import PoolCard from "./component/PoolComponent";
+
 configureWeb3Modal();
 
 function App() {
-  usePools()
-  return (
-    <>
-      
-      <div className="container">
-      <Header />
+  const pools = useGetPool();
+  console.log(pools);
 
-      <div>
-        <button>Stake</button>
-      </div>
-      </div>
-    </>
+  return (
+    <Container>
+      <Header />
+      <main className="mt-6">
+        <CreatePoolComponent />
+        {pools.map((item, index) => (
+          <PoolCard
+            key={index}
+            totalStakers={item[0]}
+            totalStakedAmount={item[1]}
+            rewardReserve={item[2]}
+            rewardRate={item[3]}
+            PoolCount={Number(item.PoolCount)}
+          />
+        ))}
+      </main>
+    </Container>
   );
 }
 
 export default App;
+
+// there should be a way we can name arrays
+
+// Combining all pools into one array
+
+// destructure it and give them names
