@@ -2,8 +2,6 @@ import { Container } from "@radix-ui/themes";
 import { configureWeb3Modal } from "./connection";
 import "@radix-ui/themes/styles.css";
 import Header from "./component/Header";
-// import CreatePoolComponent from "./component/CreatePool";
-// import useGetPool from "./hooks/useGetPools";
 import PoolCard from "./component/PoolComponent";
 import useGetAllPools from "./hooks/useGetAllPools";
 
@@ -18,6 +16,7 @@ function App() {
       <Header />
       <main className="mt-12">
         {/* <CreatePoolComponent /> */}
+        <div className="flex gap-7 flex-wrap">
         {allPools.map((pool, poolIndex) => (
           <div key={poolIndex}>
             {pool.map((item, itemIndex) => (
@@ -34,15 +33,11 @@ function App() {
             ))}
           </div>
         ))}
+        </div>
+    
       </main>
     </Container>
   );
 }
 
 export default App;
-
-// there should be a way we can name arrays
-
-// Combining all pools into one array
-
-// destructure it and give them names

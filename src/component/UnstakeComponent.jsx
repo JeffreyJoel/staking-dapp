@@ -6,8 +6,8 @@ const UnstakeComponent = ({ poolId }) => {
   const handleUnStake = useUnstake(poolId);
   console.log(poolId);
   return (
-    <Button className="bg-red-600" onClick={handleUnStake}>
-      Stake
+    <Button className="bg-red-600 mt-4" onClick={handleUnStake}>
+      Unstake
     </Button>
   );
 };

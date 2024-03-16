@@ -1,5 +1,6 @@
 import { Box, Card, Flex, Text } from "@radix-ui/themes";
 import StakeComponent from "./StakeComponent";
+import UnstakeComponent from "./UnstakeComponent";
 
 const PoolCard = ({
   totalStakers,
@@ -27,9 +28,10 @@ const PoolCard = ({
               <Text as="div" weight="bold">
               RewardRate {rewardRate}
               </Text>{
-                
+
               }
               <StakeComponent poolId={index}/>
+              <UnstakeComponent poolId={index}/>
               {/* <button
                 className="text-white bg-blue-600 py-1 px-4 rounded-md"
                 onClick={() => handleStake(totalStakers)}
