@@ -7,7 +7,7 @@ import {
   useWeb3ModalProvider,
 } from "@web3modal/ethers/react";
 
-const useUnstake = (poolId) => {
+const useClaimRewards = (poolId) => {
   const { chainId } = useWeb3ModalAccount();
   const { walletProvider } = useWeb3ModalProvider();
 
@@ -19,7 +19,7 @@ const useUnstake = (poolId) => {
     const contract = getContract(signer);
 
     try {
-      const transaction = await contract.unstake(poolId);
+      const transaction = await contract.claimReward(poolId);
 
       console.log("transaction: ", transaction);
       const receipt = await transaction.wait();
@@ -27,16 +27,15 @@ const useUnstake = (poolId) => {
       console.log("receipt: ", receipt);
 
       if (receipt.status) {
-        console.log("Unstake successful!");
+         console.log("Claim successful!");
         window.location.reload(false);
-
       }
 
-      console.log("Unstake failed!");
+      console.log("Claim failed!");
     } catch (error) {
       console.error("error: ", error);
     }
   }, [poolId, chainId, walletProvider]);
 };
 
-export default useUnstake;
+export default useClaimRewards;

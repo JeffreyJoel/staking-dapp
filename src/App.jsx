@@ -16,7 +16,7 @@ function App() {
       <Header />
       <main className="mt-12">
         {/* <CreatePoolComponent /> */}
-        <div className="flex gap-7 flex-wrap">
+        <div className="flex gap-7 flex-wrap mx-auto">
         {allPools.map((pool, poolIndex) => (
           <div key={poolIndex}>
             {pool.map((item, itemIndex) => (
@@ -25,7 +25,7 @@ function App() {
                 index={poolIndex}
                 totalStakers={Number(item[0])}
                 totalStakedAmount={Number(item[1])}
-                rewardReserve={Number(item[2])}
+                rewardReserve={Number(item[2])/(1000000000000000000)}
                 rewardRate={Number(item[3])}
                 // Assuming PoolCount is a property of each item
                 // PoolCount={Number(item.PoolCount)}

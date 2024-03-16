@@ -10,7 +10,7 @@ const StakeComponent = ({poolId}) => {
   return (
     <Dialog.Root>
       <Dialog.Trigger>
-        <Button className="bg-blue-600">Stake</Button>
+        <Button className="bg-blue-600 p-3">Stake</Button>
       </Dialog.Trigger>
 
       <Dialog.Content style={{ maxWidth: 450 }}>

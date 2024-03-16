@@ -27,7 +27,8 @@ const useStake = (poolId, amount) => {
       console.log("receipt: ", receipt);
 
       if (receipt.status) {
-        return console.log("Stake successful!");
+         console.log("Stake successful!");
+        window.location.reload(true);
       }
 
       console.log("Stake failed!");
